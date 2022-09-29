@@ -1,0 +1,100 @@
+@import "./reset";
+@import "./utils";
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.filter-block {
+  padding: 30px;
+  background-color: $gray;
+  border-radius: 8px;
+}
+
+
+.c-table {
+  width: 100%;
+  border-spacing: 0;
+
+  &__header {
+    &__th {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      color: $black;
+
+      &--sortable {
+        cursor: pointer;
+        transition: $transition-timing-default color;
+
+        &:hover {
+          color: $purple;
+        }
+      }
+
+      &__sort-arrow {
+        opacity: 0;
+        transition: $transition-timing-default opacity, $transition-timing-default transform;
+      }
+
+      &--asc {
+        .c-table__header__th__sort-arrow {
+          opacity: 1;
+        }
+      }
+
+      &--desc {
+        .c-table__header__th__sort-arrow {
+          opacity: 1;
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &__sort-icon {
+      width: 18px;
+      height: 18px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__actions {
+      text-align: left;
+    }
+  }
+
+  th {
+    background-color: $line;
+    text-align: left;
+    padding: 12px 20px;
+    color: $black;
+
+    &:first-child {
+      border-top-left-radius: 10px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 10px;
+    }
+  }
+
+  td {
+    background-color: #fff;
+    padding: 12px 20px;
+    color: $black;
+    border-left: 1px solid $line;
+    border-bottom: 1px solid $line;
+
+
+    &:last-child {
+      padding-right: 20px;
+      border-right: 1px solid $line;
+    }
+  }
+
+}

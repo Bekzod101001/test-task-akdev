@@ -1,0 +1,62 @@
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin section-title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 32px;
+}
+
+@mixin scrollbar {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #eee;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $purple;
+    border-radius: 10px;
+    transition: 0.25s background-color;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #1e8680;
+  }
+}
+
+@mixin scrollbar($width: 5px, $height: 5px, $color: $purple) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $height;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $gray;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $color;
+    border-radius: 10px;
+    transition: $transition-timing-default background-color;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $purple-hover;
+  }
+}
+
+@mixin full-sized {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+@mixin hideTextThatNotFits {
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

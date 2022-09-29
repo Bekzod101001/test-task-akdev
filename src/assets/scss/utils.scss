@@ -1,0 +1,70 @@
+$positions: ("l": "left", "r": "right", "t": "top", "b": "bottom");
+.u {
+  &-required {
+    font-weight: bold;
+    font-size: 14px;
+    color: $purple;
+
+    &::after {
+      content: '*';
+    }
+  }
+
+  &-w {
+    &-100 {
+      width: 100%;
+    }
+  }
+
+  &-underlined {
+    text-decoration: underline;
+  }
+
+  &-bold {
+    font-weight: bold;
+  }
+
+  &-mx {
+    &-auto {
+      margin: 0 auto;
+    }
+  }
+
+  @each $key, $position in $positions {
+    &-m#{$key}-auto {
+      margin-#{$position}: auto;
+    }
+  }
+  @each $size in 1, 2, 3, 4, 5, 6, 7, 8 {
+    @each $key, $position in $positions {
+      &-p#{$key}-#{$size} {
+        padding-#{$position}: #{$size * 8}px
+      }
+      &-m#{$key}-#{$size} {
+        margin-#{$position}: #{$size * 8}px
+      }
+    }
+
+    &-ma-#{$size} {
+      margin: #{$size * 8}px
+    }
+
+    &-pa-#{$size} {
+      padding: #{$size * 8}px
+    }
+
+  }
+
+
+  &-d {
+    &-flex {
+      display: flex;
+      flex-wrap: wrap;
+
+      &-align-center {
+        align-items: center;
+      }
+    }
+  }
+
+}
