@@ -50,8 +50,12 @@ export default defineComponent({
         this.checkedUsers = this.users.map((user: UserInterface) => user.id);
       }
     },
-    deleteUser(index: number) {
-      this.DELETE_USER(index);
+    deleteUser(id: number) {
+      const indexInCheckedUsers = this.checkedUsers.findIndex((checkedUserId: number) => checkedUserId === id);
+      if(indexInCheckedUsers !== -1) {
+        this.checkedUsers.splice(indexInCheckedUsers, 1);
+      }
+      this.DELETE_USER(id);
     },
     deleteUsers() {
       this.DELETE_USERS(this.checkedUsers);
@@ -178,7 +182,7 @@ export default defineComponent({
     </app-btn>
 
     <div class="u-ml-auto">
-      Users count: {{ users.length }}
+      Users count: {{ computedUsers.length }}
     </div>
   </div>
 </template>
