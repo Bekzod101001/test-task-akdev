@@ -59,6 +59,7 @@ export default defineComponent({
     },
     deleteUsers() {
       this.DELETE_USERS(this.checkedUsers);
+      this.checkedUsers = [];
     }
   },
   mounted() {
